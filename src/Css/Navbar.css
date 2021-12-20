@@ -1,0 +1,103 @@
+.qheader{
+ display: flex;   
+ justify-content: center;
+ align-items: center;
+ padding: 1px;
+ background-color: white;
+ width: 100%;
+ position: sticky;
+ z-index: 1000;
+ top: 0;
+ box-shadow: 1px 15px 8px -9px rgb(20,76,114);
+
+
+}
+
+
+
+
+.qheader_logo{
+    /* position: reltive; */
+  
+display: flex;
+flex-direction: row;
+justify-content:end;
+align-items:center;
+left: 20px;
+/* margin-right: 20px; */
+/* height: 30px; */
+}
+.qheader_logo > img{
+    height: 75px;
+  
+
+}
+
+.qheadericons{
+    display: flex;
+    margin-top: 20px;
+}
+.qheadericon > .MuiSvgIcon-root{
+    color: rgb(108 120 142);
+    cursor: pointer;
+    font-size: xx-large;
+    padding: 5px 20px;
+
+}
+.qheadericon > .MuiSvgIcon-root:hover{
+    color:rgb(20 61 89);
+    /* background-color: lightsteelblue; */
+
+}
+.qheaderInput{
+    display:flex;
+    align-items: center;
+    border: 1px solid lightsteelblue;
+    padding: 5px;
+    margin-top: 15px;
+    
+}
+.qheaderInput >input{
+   background-color: transparent;
+   border: none;
+   outline: none;
+   color: rgb(49,49,49);
+    
+}
+.qheaderInput >.MuiSvgIcon-root{
+    color:rgb(108 120 142) ;
+}
+.qheaderInput >.MuiSvgIcon-root:hover{
+    color:rgb(20 61 89);
+}
+.qheader_rem{
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    
+}
+.qheader_rem > .qheader_avtar{
+   cursor: pointer;
+}
+.qheader_rem >.MuiSvgIcon-root{
+    font-size: xx-large;
+    color:rgb(108 120 142) ;
+    margin-left: 25px;
+    cursor: pointer;
+}
+.qheader_rem >.MuiSvgIcon-root:hover{
+    color:rgb(20 61 89);
+}
+.qheader_rem >.MuiButton-root{
+    background-color: rgb(20 61 89);
+    color: white;
+  
+    cursor: pointer;
+    margin-left: 25px;
+    text-transform: inherit;
+    border-radius: 15px;
+}
+.qheader_rem >.MuiButton-root:hover{
+     background-color:red;
+     color: white;
+}

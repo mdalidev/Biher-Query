@@ -1,0 +1,11 @@
+.query_content{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.sidebar{
+    position: sticky;
+    /* position: sticky; */
+    /* z-index: 1000; */
+    top: 0;
+}

@@ -1,0 +1,32 @@
+.Querybox{
+
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 2px solid rgb(163, 186, 219);
+    border-radius: 2px;
+    background-color: white;
+   
+}
+.Querybox:hover{
+    border: 2px solid rgb(20 61 89);
+    border-radius: 2px;
+}
+.queryboxinfo{
+    display: flex;
+    align-items: center;
+}
+.queryboxinfo >h4{
+    color: rgb(20 61 89);
+       font-weight: 500;
+       margin-left: 10px;
+}
+.querybox_query{
+    display: flex;
+    margin-top: 8px;
+}
+.querybox_query >p {
+   color: lightslategray;
+   font-weight: bold;
+   font-size: large;
+}
