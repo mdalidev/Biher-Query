@@ -13,8 +13,12 @@ import LanguageIcon from '@material-ui/icons/Language';
 
 import { Button } from '@material-ui/core';
 import { Avatar } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
+import { auth } from '../firebase';
 
 function Navbar() {
+    const user =useSelector(selectUser)
     return (
         <div className='qheader'>
            <div className="qheader_logo">
@@ -47,7 +51,10 @@ function Navbar() {
 </div>
 <div className="qheader_rem">
     <div className="qheader_avtar">
-        <Avatar/>
+        <Avatar
+        
+      onClick={()=>auth.signOut()}  src={user.photo}
+        />
     </div>
     <LanguageIcon/>
     {/* <GTranslateIcon/> */}
