@@ -22,6 +22,9 @@
   justify-content: space-between;
   width: 65%;
 }
+.login__logo  a{
+    z-index: 9999;
+}
 
 .login__desc {
   display: flex;

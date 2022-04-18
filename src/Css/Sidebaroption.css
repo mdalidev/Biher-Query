@@ -31,3 +31,43 @@ margin-left: 10px;
     margin-left: 20px;
 
 }
+/* /////////////////////////////////// */
+.nsidebarOptions {
+    display: flex;
+    flex-direction: column;
+  }
+  .nsidebarOption {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .nsidebarOption:hover {
+    background: rgb(20 61 89);
+    color: azure;
+    border-radius: 5px;
+  }
+  .nsidebarOption > img {
+    height: 90px;
+    border-radius: 5px;
+    margin-left: 20px;
+  }
+  
+  .nsidebarOption > .MuiSvgIcon-root {
+    font-size: medium;
+    margin-left: 20px;
+  }
+  .nsidebarOption > p {
+    margin-left: 10px;
+    color: gray;
+    font-weight: 400;
+    font-size: 13px;
+  }
+  
+  .nsidebarOption > .text {
+    margin-left: 23px;
+    color: gray;
+    font-weight: 400;
+    font-size: 13px;
+  }

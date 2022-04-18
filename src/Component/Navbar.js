@@ -1,4 +1,5 @@
-import React from 'react'
+import React,{useState} from 'react'
+
 import '../Css/Navbar.css';
 import  logo from './logo.svg'
 import  logo1 from './logo1.svg'
@@ -11,14 +12,37 @@ import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined'
 import SearchIcon from '@material-ui/icons/Search';
 import LanguageIcon from '@material-ui/icons/Language';
 
-import { Button } from '@material-ui/core';
-import { Avatar } from '@material-ui/core';
+import { Avatar, Button, Input} from "@material-ui/core";
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
-import { auth } from '../firebase';
+import db, { auth } from '../firebase';
+import { ExpandMore, Link } from "@material-ui/icons";
+import firebase from "firebase/compat/app"
+import Modal  from 'react-modal';
 
 function Navbar() {
     const user =useSelector(selectUser)
+    const [Ismodalopen,setIsModalOpen]= useState(false)
+    const [input, setInput] = useState("");
+    const [inputUrl, setInputUrl] = useState("");
+    const questionName = input;
+  
+    const handleQuestion = (e) => {
+      e.preventDefault();
+      setIsModalOpen(false);
+  
+      if (questionName) {
+        db.collection("questions").add({
+          user: user,
+          question: input,
+          imageUrl: inputUrl,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+      }
+  
+      setInput("");
+      setInputUrl("");
+    };
     return (
         <div className='qheader'>
            <div className="qheader_logo">
@@ -44,6 +68,7 @@ function Navbar() {
                    </div>
                  
                </div>
+               
 <div className="qheaderInput">
     <SearchIcon/>
     <input type="search" placeholder="Search Query...." />
@@ -58,7 +83,73 @@ function Navbar() {
     </div>
     <LanguageIcon/>
     {/* <GTranslateIcon/> */}
-    <Button>Ask Question...?</Button>
+    <Button onClick={()=> setIsModalOpen(true)} >Ask Question...?</Button>
+    <Modal
+          isOpen={Ismodalopen}
+          onRequestClose={() => setIsModalOpen(false)}
+          shouldCloseOnOverlayClick={false}
+          style={{
+              overlay: {
+                  width: 700,
+                  height: 600,
+                  backgroundColor: "rgb(20 76 114 / 90%)",
+                //   boxShadow: "-9px -20px 83px 8px rgb(20 76 114)",
+              
+              zIndex: "1000",
+              top: "50%",
+              left: "50%",
+              marginTop: "-250px",
+              marginLeft: "-350px",
+            },
+          }}
+        >
+          <div className="modal__title">
+            <h5>Add Question</h5>
+            <h5>Share Link</h5>
+          </div>
+          <div className="modal__info">
+            <Avatar
+              className="avatar"
+              src={
+                user.photo
+                  ? user.photo
+                  : "https://images-platform.99static.com//_QXV_u2KU7-ihGjWZVHQb5d-yVM=/238x1326:821x1909/fit-in/500x500/99designs-contests-attachments/119/119362/attachment_119362573"
+              }
+            />
+            <p>{user.disPlayName ? user.disPlayName : user.email} asked</p>
+            <div className="modal__scope">
+              <PeopleAltOutlinedIcon />
+              <p>Public</p>
+              <ExpandMore />
+            </div>
+          </div>
+          <div className="modal__Field">
+            <Input
+            required
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              type="text"
+              placeholder="Start your question with 'What', 'How', 'Why', etc. "
+            />
+            <div className="modal__fieldLink">
+              <Link/>
+              <input
+                value={inputUrl}
+                onChange={(e) => setInputUrl(e.target.value)}
+                type="text"
+                placeholder="Optional: inclue a link that gives context"
+              ></input>
+            </div>
+          </div>
+          <div className="modal__buttons">
+            <button className="cancle" onClick={() => setIsModalOpen(false)}>
+              Cancel
+            </button>
+            <button type="sumbit" onClick={handleQuestion} className="add">
+              Add Question
+            </button>
+          </div>
+        </Modal>
 </div>
         </div>
     )

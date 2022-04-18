@@ -50,19 +50,20 @@ function Login() {
     <div className="login">
       <div className="login__container">
         <div className="login__logo">
-          {/* <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Quora_logo_2015.svg/250px-Quora_logo_2015.svg.png"
-            alt=""
-          /> */}
-           <img src="https://www.mycamu.co.in/camu_attachment/get/5b474b68d630906355489d2b" alt="" style={{width:"30%"}} />
-               <img src={logo2} alt=""  />
+         
+          {/* <a href="https://bharathuniv.ac.in" target={"_blank"}> */}
+
+           <img src="https://www.mycamu.co.in/camu_attachment/get/5b474b68d630906355489d2b" alt="Biher" style={{width:"30%",height:"30%"}} />
+          {/* </a> */}
+         <img src={logo2} alt="Biher-Query"  />
+         
         </div>
         <div className="login__desc">
           <p>A Place to Share knowledge and better understand the world</p>
           <p style={{ color: "royalblue", fontSize: "25px" }}>
             HandCrafted with ❤️ by{" "}
           </p>
-          <h3>MD ALI and team #J9 Group</h3>
+          <h3> <a href="https://my-portfolio-liart-six.vercel.app/" target={"_blank"} style={{textDecoration:"none"}}> MD ALI</a>  and team #J9 Group</h3>
         </div>
         <div className="login__auth">
           <div className="login__authOptions">
@@ -134,6 +135,7 @@ function Login() {
           <ArrowForwardIosIcon fontSize="small" />
         </div>
         <div className="login__footer">
+            
           <p>About</p>
           <p>Languages</p>
           <p>Careers</p>
