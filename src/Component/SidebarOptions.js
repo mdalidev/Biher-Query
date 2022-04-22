@@ -102,8 +102,11 @@ function SidebarOptions() {
         <p>Education</p>
       </div>
            <div className="sidebaroption">
+               <a href="https://bu-chat.vercel.app/" >
                <Add/>
+
                <p>Discover Group's & Space's</p>
+               </a>
            </div>
         </div>
     )

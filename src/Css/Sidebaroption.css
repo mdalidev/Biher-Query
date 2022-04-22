@@ -16,15 +16,17 @@ margin-left: 10px;
 
 
 }
-.sidebaroption{
+.sidebaroption > a{
+  text-decoration: none;
+  color:rgb(20 61 89) ;
     display: flex;
     align-items:center;
     padding: 10px;
     cursor: pointer;
 }
-.sidebaroption:hover{
+.sidebaroption > a:hover{
     background-color: rgb(20 61 89);
-    color: ghostwhite;
+    color: white;
 }
 .sidebaroption >.MuiSvgIcon-root{
     font-size: medium;
